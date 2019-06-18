@@ -6,7 +6,6 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JOptionPane;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -103,19 +102,24 @@ public class Tetris extends JPanel {
 	
 	// Put a new, random piece into the dropping position
 	public void newPiece() {
+		
+		// Identificador de game over
 		for(int i = 1; i < 11; i++) {
 			if (well[i][4] != Color.BLACK) {
 				gameOver();
+				break;	//TODO: tentar retirar esse break
 			}
 		}
-		pieceOrigin = new Point(5, 2);
-		rotation = 0;
-		if (nextPieces.isEmpty()) {
-			Collections.addAll(nextPieces, 0, 1, 2, 3, 4, 5, 6);
-			Collections.shuffle(nextPieces);
+		if (!getGameOver()) {	// Evitar que produza nova peça apos acabar o jogo
+			pieceOrigin = new Point(5, 2);
+			rotation = 0;
+			if (nextPieces.isEmpty()) {
+				Collections.addAll(nextPieces, 0, 1, 2, 3, 4, 5, 6);
+				Collections.shuffle(nextPieces);
+			}
+			currentPiece = nextPieces.get(0);
+			nextPieces.remove(0);
 		}
-		currentPiece = nextPieces.get(0);
-		nextPieces.remove(0);
 	}
 	
 	// Collision test for the dropping piece
@@ -217,8 +221,8 @@ public class Tetris extends JPanel {
 		
 		// TODO: CONSERTAR PARA QUE APAREÇA O AVISO
 		gameOver = true;
-		String message = String.format("Você perdeu! Sua pontuação foi: %ld", score);
-		JOptionPane.showMessageDialog(null, message, "FIM DE JOGO", JOptionPane.PLAIN_MESSAGE);
+		String message = String.format("Você perdeu! Sua pontuação foi: %d", score);
+		JOptionPane.showMessageDialog(this, message, "FIM DE JOGO", JOptionPane.PLAIN_MESSAGE);
 	}
 
 	public boolean getGameOver() {
