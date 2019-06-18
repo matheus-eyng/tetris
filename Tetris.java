@@ -79,6 +79,8 @@ public class Tetris extends JPanel {
 	private int currentPiece;
 	private int rotation;
 	private ArrayList<Integer> nextPieces = new ArrayList<Integer>();
+	
+	private boolean gameOver = false;
 
 	private long score;
 	private Color[][] well;
@@ -204,6 +206,10 @@ public class Tetris extends JPanel {
 			break;
 		}
 	}
+
+	public boolean getGameOver() {
+		return gameOver;
+	}
 	
 	// Draw the falling piece
 	private void drawPiece(Graphics g) {		
@@ -278,7 +284,7 @@ public class Tetris extends JPanel {
 		// Make the falling piece drop every second
 		new Thread() {
 			@Override public void run() {
-				while (true) {
+				while (!game.getGameOver()) {
 					try {
 						Thread.sleep(1000);
 						game.dropDown();
