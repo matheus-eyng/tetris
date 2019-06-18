@@ -215,7 +215,7 @@ public class Tetris extends JPanel {
 
 	public void gameOver() {
 		
-		//NÃO FUNCIONA AINDA, POR ALGUM MOTIVO
+		// TODO: CONSERTAR PARA QUE APAREÇA O AVISO
 		gameOver = true;
 		String message = String.format("Você perdeu! Sua pontuação foi: %ld", score);
 		JOptionPane.showMessageDialog(null, message, "FIM DE JOGO", JOptionPane.PLAIN_MESSAGE);
