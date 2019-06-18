@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Collections;
+import javax.swing.JOptionPane;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -104,7 +105,7 @@ public class Tetris extends JPanel {
 	public void newPiece() {
 		for(int i = 1; i < 11; i++) {
 			if (well[i][4] != Color.BLACK) {
-				gameOver = true;
+				gameOver();
 			}
 		}
 		pieceOrigin = new Point(5, 2);
@@ -212,6 +213,14 @@ public class Tetris extends JPanel {
 		}
 	}
 
+	public void gameOver() {
+		
+		//NÃO FUNCIONA AINDA, POR ALGUM MOTIVO
+		gameOver = true;
+		String message = String.format("Você perdeu! Sua pontuação foi: %ld", score);
+		JOptionPane.showMessageDialog(null, message, "FIM DE JOGO", JOptionPane.PLAIN_MESSAGE);
+	}
+
 	public boolean getGameOver() {
 		return gameOver;
 	}
@@ -293,7 +302,7 @@ public class Tetris extends JPanel {
 			@Override public void run() {
 				while (!game.getGameOver()) {
 					try {
-						Thread.sleep(1000);
+						Thread.sleep(500);
 						game.dropDown();
 					} catch ( InterruptedException e ) {}
 				}
