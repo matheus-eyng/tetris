@@ -86,7 +86,7 @@ public class Tetris extends JPanel {
 	private Color[][] well;
 	
 	// Creates a border around the well and initializes the dropping piece
-	private void init() {
+	public void init() {
 		well = new Color[12][24];
 		for (int i = 0; i < 12; i++) {
 			for (int j = 0; j < 23; j++) {
@@ -105,6 +105,7 @@ public class Tetris extends JPanel {
 		for(int i = 1; i < 11; i++) {
 			if (well[i][4] != Color.BLACK) {
 				gameOver = true;
+			}
 		}
 		pieceOrigin = new Point(5, 2);
 		rotation = 0;
@@ -254,7 +255,9 @@ public class Tetris extends JPanel {
 		final Tetris game = new Tetris();
 		game.init();
 		f.add(game);
-		
+		// talvez fazer um método para adicionar um objeto Tetris ao JFrame, fazendo que o new game seja remover o objeto antigo, adicionar um novo e iniciar o jogo.
+
+
 		// Keyboard controls
 		f.addKeyListener(new KeyListener() {
 			public void keyTyped(KeyEvent e) {
