@@ -102,6 +102,10 @@ public class Tetris extends JPanel {
 	
 	// Put a new, random piece into the dropping position
 	public void newPiece() {
+		for(int i = 1; i < 11; i++) {
+			if (well[i][4] != Color.BLACK) {
+				gameOver = true;
+		}
 		pieceOrigin = new Point(5, 2);
 		rotation = 0;
 		if (nextPieces.isEmpty()) {
