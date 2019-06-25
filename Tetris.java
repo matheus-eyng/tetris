@@ -79,7 +79,7 @@ public class Tetris extends JPanel {
 	private int currentPiece;
 	private int rotation;
 	private ArrayList<Integer> nextPieces = new ArrayList<Integer>();
-	
+	private String name;
 	private boolean gameOver = false;
 
 	private long score;
@@ -221,8 +221,8 @@ public class Tetris extends JPanel {
 		
 		// TODO: CONSERTAR PARA QUE APAREÇA O AVISO
 		gameOver = true;
-		String message = String.format("Você perdeu! Sua pontuação foi: %d", score);
-		JOptionPane.showMessageDialog(this, message, "FIM DE JOGO", JOptionPane.PLAIN_MESSAGE);
+		String message = String.format("Você perdeu! Sua pontuação foi: %d \nQual o seu nome?", score);
+		name = JOptionPane.showInputDialog(this, message);
 	}
 
 	public boolean getGameOver() {
