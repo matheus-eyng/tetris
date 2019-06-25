@@ -217,9 +217,12 @@ public class Tetris extends JPanel {
 		}
 	}
 
+	public void addScore(int num) {
+		score = score + num;
+	}
+
 	public void gameOver() {
 		
-		// TODO: CONSERTAR PARA QUE APAREÇA O AVISO
 		gameOver = true;
 		String message = String.format("Você perdeu! Sua pontuação foi: %d \nQual o seu nome?", score);
 		name = JOptionPane.showInputDialog(this, message);
