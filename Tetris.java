@@ -262,7 +262,7 @@ public class Tetris extends JPanel {
 		drawPiece(g);
 	}
 
-	public static void main(String[] args) {
+	/* public static void main(String[] args) {
 		JFrame f = new JFrame("Tetris");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setSize(12*26+10, 26*23+25);
@@ -315,5 +315,5 @@ public class Tetris extends JPanel {
 				}
 			}
 		}.start();
-	}
+	} */
 }
