@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class ReadSequentialFile
 {
    private ObjectInputStream input;
-   private ArrayList<String> scoreList;
+   private ArrayList<Object> scoreList;
 
    // enable user to select file to open
    public void openFile()
@@ -29,14 +29,13 @@ public class ReadSequentialFile
    // read record from file
    public void readRecords()
    {
-      String score;
-      scoreList = new ArrayList<String>();
+      /* String score; */
+      scoreList = new ArrayList<Object>();
       try
       { 
          while ( true )
          {
-            score = (String) input.readObject();
-            scoreList.add(score);
+            scoreList.add(input.readObject());
          } // end while
       } // end try
       catch ( EOFException endOfFileException )
@@ -69,7 +68,7 @@ public class ReadSequentialFile
       } // end catch
    } // end method closeFile
 
-   public ArrayList<String> getList() {
+   public ArrayList<Object> getList() {
       return scoreList; 
    }
 } // end class ReadSequentialFile

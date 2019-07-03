@@ -12,21 +12,18 @@ public class ReadSequentialFileTest
 
       application.openFile();
       application.readRecords();
-      ArrayList<String> log = application.getList();
+      ArrayList<Object> log = application.getList();
       
-      // Ordenando com regex
-      ArrayList<Long> num = new ArrayList<Long>();
       for (int i = 0; i < log.size(); i++) {
-         System.out.printf("%s\n", log.get(i));
-         Pattern p = Pattern.compile("\\d+");
-         Matcher m = p.matcher(log.get(i));
-         while(m.find()) {
-            num.add(Long.parseLong(m.group()));
+         if (i % 2 == 0) {
+            String name = (String) log.get(i);
+            System.out.printf("%s\t", name);
+         }
+         else {
+            Long score = (Long) log.get(i);
+            System.out.printf("%d\n", score);
          }
       }
-      num.sort(null);
-      System.out.println(num);
-
       application.closeFile();
 
    } // end main

@@ -8,7 +8,7 @@ public class CreateSequentialFileTest
       CreateSequentialFile application = new CreateSequentialFile();
 
       application.openFile();
-      application.addRecords("mav", 22);
+      application.addRecords("roberto", 6222);
       application.closeFile();
    } // end main
 } // end class CreateSequentialFileTest

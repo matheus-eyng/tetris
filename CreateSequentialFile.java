@@ -13,7 +13,7 @@ public class CreateSequentialFile
 {
    private ObjectOutputStream output; // outputs data to file
    private ReadSequentialFile reader;
-   private ArrayList<String> log;
+   private ArrayList<Object> log;
 
    // allow user to specify file name
    public void openFile()
@@ -43,7 +43,6 @@ public class CreateSequentialFile
    // add records to file
    public void addRecords(String name, long score)
    {
-      String finalScore = String.format("%s\t%d", name, score);
 
       try // output values to file
       {
@@ -52,7 +51,8 @@ public class CreateSequentialFile
                output.writeObject(log.get(i));
             }
          }
-         output.writeObject(finalScore); // output record
+         output.writeObject(name); // output record
+         output.writeObject(score);
       } // end try
 
       catch (IOException ioException) {
