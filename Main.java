@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        TetrisFrame game = new TetrisFrame();
+        TetrisPanel game = new TetrisPanel();
         game.jogar();
     }
 }
