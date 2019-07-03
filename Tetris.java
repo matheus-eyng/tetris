@@ -107,7 +107,7 @@ public class Tetris extends JPanel {
 		for(int i = 1; i < 11; i++) {
 			if (well[i][4] != Color.BLACK) {
 				gameOver();
-				break;	//TODO: tentar retirar esse break
+				break;
 			}
 		}
 		if (!getGameOver()) {	// Evitar que produza nova peça apos acabar o jogo
