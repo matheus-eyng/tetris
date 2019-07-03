@@ -23,6 +23,9 @@ public class CreateSequentialFile
          File file = new File("highScore.ser");
          reader = new ReadSequentialFile();
 
+         // Checar existencia de um arquivo serializado antes
+         //de escrever, por que ao invocar addRecords() os dados
+         //sao perdidos 
          if (file.exists()) {
             reader.openFile();
             reader.readRecords();
