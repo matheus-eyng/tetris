@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 // Testing class ReadSequentialFile.
 
@@ -11,9 +13,19 @@ public class ReadSequentialFileTest
       application.openFile();
       application.readRecords();
       ArrayList<String> log = application.getList();
+      
+      // Ordenando com regex
+      ArrayList<Long> num = new ArrayList<Long>();
       for (int i = 0; i < log.size(); i++) {
          System.out.printf("%s\n", log.get(i));
+         Pattern p = Pattern.compile("\\d+");
+         Matcher m = p.matcher(log.get(i));
+         while(m.find()) {
+            num.add(Long.parseLong(m.group()));
+         }
       }
+      num.sort(null);
+      System.out.println(num);
 
       application.closeFile();
 
