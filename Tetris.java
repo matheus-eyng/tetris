@@ -224,8 +224,10 @@ public class Tetris extends JPanel {
 	public void gameOver() {
 		
 		gameOver = true;
-		String message = String.format("Você perdeu! Sua pontuação foi: %d \nQual o seu nome?", score);
+		String message = String.format("Você perdeu! Sua pontuação foi: %d \n\nDigite um nome de 3 digitos!", score);
 		name = JOptionPane.showInputDialog(this, message);
+		CreateSequentialFile writer = new CreateSequentialFile();
+		writer.write(name, score);
 	}
 
 	public boolean getGameOver() {

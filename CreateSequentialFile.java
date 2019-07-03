@@ -41,7 +41,7 @@ public class CreateSequentialFile
    } // end method openFile
 
    // add records to file
-   public void addRecords(String name, int score)
+   public void addRecords(String name, long score)
    {
       String finalScore = String.format("%s\t%d", name, score);
 
@@ -79,6 +79,14 @@ public class CreateSequentialFile
          System.exit( 1 );
       } // end catch
    } // end method closeFile
+
+   // Metodo mais clean que faz tudo
+   public void write(String name, long score) {
+      openFile();
+      addRecords(name, score);
+      closeFile();
+
+   }
 } // end class CreateSequentialFile
 
 /*************************************************************************
