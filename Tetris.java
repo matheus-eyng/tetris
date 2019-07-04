@@ -158,8 +158,9 @@ public class Tetris extends JPanel {
 			} else {
 				fixToWell();
 			}
-			repaint();
+			
 		}
+		repaint();
 	}
 	
 	// Make the dropping piece part of the well, so it is available for
@@ -224,7 +225,7 @@ public class Tetris extends JPanel {
 	public void gameOver() {
 		
 		gameOver = true;
-		String message = String.format("Você perdeu! Sua pontuação foi: %d \n\nDigite um nome de 3 digitos!", score);
+		String message = String.format("Você perdeu! Sua pontuação foi: %d \n\nDigite seu nome!", score);
 		name = JOptionPane.showInputDialog(this, message);
 		CreateSequentialFile writer = new CreateSequentialFile();
 		writer.write(name, score);
