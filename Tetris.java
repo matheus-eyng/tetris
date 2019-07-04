@@ -78,6 +78,7 @@ public class Tetris extends JPanel {
 	private ArrayList<Integer> nextPieces = new ArrayList<Integer>();
 	private String name;
 	private boolean gameOver = false;
+	private boolean restart = false;
 
 	private long score;
 	private Color[][] well;
@@ -225,6 +226,7 @@ public class Tetris extends JPanel {
 		name = JOptionPane.showInputDialog(this, message);
 		CreateSequentialFile writer = new CreateSequentialFile();
 		writer.write(name, score);
+		this.restart();
 	}
 
 	public boolean getGameOver() {
@@ -259,6 +261,15 @@ public class Tetris extends JPanel {
 		
 		// Draw the currently falling piece
 		drawPiece(g);
+	}
+
+	public void restart() {
+		for (int i = 0; i < 11; i++) {
+			this.clearRows();
+		}
+		score = 0;
+		gameOver = false;
+		this.init();
 	}
 
 	/* public static void main(String[] args) {
