@@ -19,7 +19,7 @@ public class TetrisPanel extends JFrame {
         setVisible(true);
         setSize(12*26+10, 26*23+25);
         game = new Tetris();
-        /* game.init(); */
+        game.init();
         add(game);
 
         // BARRA DE MENUS
@@ -105,9 +105,5 @@ public class TetrisPanel extends JFrame {
                 }
             }
         }.start();
-    }
-
-    public void jogar() {
-        this.game.init();
     }
 }
