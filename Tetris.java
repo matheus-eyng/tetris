@@ -78,7 +78,7 @@ public class Tetris extends JPanel {
 	private ArrayList<Integer> nextPieces = new ArrayList<Integer>();
 	private String name;
 	private boolean gameOver = false;
-	private boolean restart = false;
+	private boolean pause = true;
 
 	private long score;
 	private Color[][] well;
@@ -152,12 +152,14 @@ public class Tetris extends JPanel {
 	
 	// Drops the piece one line or fixes it to the well if it can't drop
 	public void dropDown() {
-		if (!collidesAt(pieceOrigin.x, pieceOrigin.y + 1, rotation)) {
-			pieceOrigin.y += 1;
-		} else {
-			fixToWell();
-		}	
-		repaint();
+		if (!pause) {
+			if (!collidesAt(pieceOrigin.x, pieceOrigin.y + 1, rotation)) {
+				pieceOrigin.y += 1;
+			} else {
+				fixToWell();
+			}
+			repaint();
+		}
 	}
 	
 	// Make the dropping piece part of the well, so it is available for
@@ -272,4 +274,7 @@ public class Tetris extends JPanel {
 		this.init();
 	}
 
+	public void unpause() {
+		pause = !pause;
+	}
 }
