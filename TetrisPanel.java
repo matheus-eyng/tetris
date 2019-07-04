@@ -54,7 +54,7 @@ public class TetrisPanel extends JFrame {
                 Ranking rank = new Ranking();
                 String highest = rank.getHighest();
                 String message = String.format("HIGHEST SCORE: \n%s", highest);
-                JOptionPane.showMessageDialog(TetrisPanel.this, message, "Instructions", JOptionPane.PLAIN_MESSAGE);
+                JOptionPane.showMessageDialog(TetrisPanel.this, message, "High Score", JOptionPane.PLAIN_MESSAGE);
             } // fim do metodo actionPerformed
         } // fim da classe interna anonima
         ); // fim da chamada ao addActionListener

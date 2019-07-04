@@ -25,8 +25,7 @@ public class Ranking {
                 highestName = (String) log.get(i-1);
             }
         }
-        // jesus
-        String result = String.format("%s\t%d\n", highestName, highestScore);
+        String result = String.format("%s\t%d", highestName, highestScore);
         
         return result;
     }
