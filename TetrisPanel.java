@@ -14,9 +14,7 @@ public class TetrisPanel extends JFrame {
 
     public TetrisPanel() {
         super("Tetris");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-        setSize(12*26+10, 26*23+26);
+        
         game = new Tetris();
         game.init();
         add(game);
@@ -105,5 +103,9 @@ public class TetrisPanel extends JFrame {
                 }
             }
         }.start();
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(312, 648);
+        setVisible(true);
     }
 }
