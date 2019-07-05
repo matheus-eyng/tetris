@@ -222,6 +222,7 @@ public class Tetris extends JPanel {
 		score = score + num;
 	}
 
+	// Set game over state
 	public void gameOver() {
 		
 		gameOver = true;
@@ -260,7 +261,12 @@ public class Tetris extends JPanel {
 		
 		// Display the score
 		g.setColor(Color.WHITE);
+		g.drawString("SCORE:", 30, 25);
 		g.drawString("" + score, 19*12, 25);
+		
+		if (pause) {
+			g.drawString("PAUSED! PRESS 'S' TO START!", 30, 45);
+		}
 		
 		// Draw the currently falling piece
 		drawPiece(g);
