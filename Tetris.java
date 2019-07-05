@@ -284,4 +284,8 @@ public class Tetris extends JPanel {
 	public void unpause() {
 		pause = !pause;
 	}
+
+	public void pause() {
+		pause = true;
+	}
 }
