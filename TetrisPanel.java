@@ -106,6 +106,7 @@ public class TetrisPanel extends JFrame {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(312, 648);
+        setLocation(400,100);
         setVisible(true);
     }
 }
