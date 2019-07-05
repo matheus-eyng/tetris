@@ -47,21 +47,13 @@ public class CreateSequentialFile
       try // output values to file
       {
          if (log != null) {
-            if (score > (long) log.get(1)) {
-               output.writeObject(name); 
-               output.writeObject(score);
-               for (int i = 0; i < log.size(); i++) {
-                  output.writeObject(log.get(i));
-               }
+            for (int i = 0; i < log.size(); i++) {
+               output.writeObject(log.get(i));
             }
-            else {
-               for (int i = 0; i < log.size(); i++) {
-                  output.writeObject(log.get(i));
-               }
-               output.writeObject(name);
-               output.writeObject(score);
-            }
+            output.writeObject(name);
+            output.writeObject(score);
          }
+
       } // end try
 
       catch (IOException ioException) {
