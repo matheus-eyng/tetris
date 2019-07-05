@@ -7,7 +7,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 public class TetrisPanel extends JFrame {
 
@@ -15,9 +14,7 @@ public class TetrisPanel extends JFrame {
 
     public TetrisPanel() {
         super("Tetris");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-        setSize(12*26+10, 26*23+25);
+        
         game = new Tetris();
         game.init();
         add(game);
@@ -53,7 +50,8 @@ public class TetrisPanel extends JFrame {
             public void actionPerformed(ActionEvent event) {
                 Ranking rank = new Ranking();
                 String highest = rank.getHighest();
-                String message = String.format("HIGHEST SCORE: \n%s", highest);
+                String all = rank.getAll();
+                String message = String.format("HIGHEST SCORE: \n%s\n\nALL SCORES:\n%s", highest, all);
                 JOptionPane.showMessageDialog(TetrisPanel.this, message, "High Score", JOptionPane.PLAIN_MESSAGE);
             } // fim do metodo actionPerformed
         } // fim da classe interna anonima
@@ -105,5 +103,10 @@ public class TetrisPanel extends JFrame {
                 }
             }
         }.start();
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(312, 648);
+        setLocation(400,100);
+        setVisible(true);
     }
 }

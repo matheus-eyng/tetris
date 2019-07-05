@@ -29,4 +29,16 @@ public class Ranking {
         
         return result;
     }
+
+    public String getAll() {
+        
+        String allScores = "";
+        String format = String.format("\n", null);
+
+        for (int i = 1; i < log.size(); i = i + 2) {
+            allScores = allScores + ( log.get(i-1) + "   " + log.get(i) + format );
+        }
+
+        return allScores;
+    }
 }
